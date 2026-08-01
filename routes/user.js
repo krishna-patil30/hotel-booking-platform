@@ -1,0 +1,29 @@
+const express = require("express");
+const router = express.Router();
+const User = require("../models/user.js");
+const WrapAsync = require("../utils/WrapAsync.js");
+const passport = require("passport");
+const { saveRedirectUrl } = require("../middleware");
+const  userController = require("../controller/users.js") 
+
+//------signing-------//
+
+router
+.route("/signup")
+.get((userController.renderSignup))
+.post(WrapAsync(userController.Signup))
+
+//-------login---------//
+
+router
+.route("/login")
+.get((userController.renderLogin) )
+.post(saveRedirectUrl, passport.
+    authenticate("local", { failureRedirect: "/login",failureFlash: true, }),
+(userController.login));
+
+
+//logout
+router.get("/logout",(userController.logout ));
+
+module.exports = router;
