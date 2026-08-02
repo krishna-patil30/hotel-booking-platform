@@ -100,7 +100,7 @@ res.send(registeredUser);
 });
 
 //app.get("/", (req, res) => {
-    res.send("Hi Root Node");
+ //   res.send("Hi Root Node");
 //});
 
 app.use("/listings", listingsRouter);
