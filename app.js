@@ -99,9 +99,9 @@ let registeredUser= await User.register(fakeUser,"helloworld");
 res.send(registeredUser);
 });
 
-app.get("/", (req, res) => {
+//app.get("/", (req, res) => {
     res.send("Hi Root Node");
-});
+//});
 
 app.use("/listings", listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
